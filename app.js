@@ -26,8 +26,8 @@ function user(id, pwd, email){
   this.email = email
 }
 
-const d = new user("a","2","naver");
-const e = new user("b","3","google");
+// const d = new user("a","2","naver");
+// const e = new user("b","3","google");
 
 let names = ['a','b','c'];
 let pwds = ['1','2','3'];

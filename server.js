@@ -16,7 +16,7 @@ class Server {
       if (Method === 'GET' && pathName === '/') {
         this.handleGetRequest(req, res);
       }
-      else if (Method === 'POST' && pathName === '/') {
+      else if (Method === 'POST' && pathName === '/post') {
         this.handlePostRequest(req, res);
       }
     })
@@ -59,13 +59,29 @@ class Server {
           <meta charset="utf-8">
         </head>
         <body>
+        <form action="/post_test" method="post">
           <p>title : ${title}</p>
           <p>description : ${description}</p>
+          </form>
         </body>
         </html>`
       );
       console.log(title);
       console.log(description);
+
+      function user(title, description){
+        this.title = title;
+        this.description = description;
+      }
+      let titlename = [title];
+      let descriptionname = [description];
+
+      let array = [];
+      for(let i = 0 ; i<titlename.length; i++){
+        array.push(new user(titlename[i],descriptionname[i]));
+      }
+      console.log(array);
+      fs.writeFileSync("b.JSON",JSON.stringify(array, null, 2), "utf-8")
       res.end();
     })
   }
